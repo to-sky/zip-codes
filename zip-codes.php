@@ -138,8 +138,8 @@ function zip_install () {
     }
 
     $file_db = plugins_url('zip-codes/dump_db.sql');
-    $sql_insert = file($file_db);
-    $rows_affected = $wpdb->query( $sql_insert[0] );
+    $input_data_to_table = file_get_contents($file_db);
+    $rows_affected = $wpdb->query( $input_data_to_table );
 }
 
 
@@ -178,17 +178,43 @@ add_action( 'wp_ajax_addCities', 'prefix_ajax_addCities' );
 add_action( 'wp_ajax_nopriv_addCities', 'prefix_ajax_addCities' );
 function prefix_ajax_addCities() {
     global $wpdb;
+    $selected = '';
     $currentState = $_POST['state'];
 
-    $data = array();
     $cities = $wpdb->get_results( 'SELECT DISTINCT city FROM wp_zipcodes WHERE state = "' . $currentState . '"' );
+
+    echo '<option value="0">-- Select City --</option>';
 
     if ($cities) {
         foreach ($cities as $city) {
-            $data[$city->city] = $city->city;
-        }    
+            if (get_field('fields[zip_city]') == $city->city) {
+                $selected = 'selected="selected"';
+            }
+
+            echo '<option value="' . $city->city . '" ' . $selected . '>' . $city->city . '</option>';
+        }
     }
 
-    print_r($data);
-    exit;
+    wp_die();
+}
+
+
+/* Select zip from db */
+add_action( 'wp_ajax_addZip', 'prefix_ajax_addZip' );
+add_action( 'wp_ajax_nopriv_addZip', 'prefix_ajax_addZip' );
+function prefix_ajax_addZip() {
+    global $wpdb;
+    $currentState = $_POST['city'];
+
+    echo '<option value="0">-- Select Zip --</option>';
+
+    $zips = $wpdb->get_results( 'SELECT DISTINCT zip FROM wp_zipcodes WHERE city = "' . $currentState . '"' );
+
+    if ($zips) {
+        foreach ($zips as $zip) {
+            echo '<option value="' . $zip->zip . '">' . $zip->zip . '</option>';
+        }
+    }
+
+    wp_die();
 }

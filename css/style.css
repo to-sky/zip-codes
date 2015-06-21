@@ -1,21 +1,16 @@
 #acf-state,
 #acf-city,
 #acf-zip {
-	/*width: 33%;*/
+	width: 28%;
+	float: left;
+	border: none;
 }
 
-#acf-city {
-	display: none;
-	transition: top 1s ease-out 0.5s;
+#acf_acf_zip {
+	overflow: hidden;
 }
 
-#acf-zip {
-	display: none;
-}
-
-.test {
-	width: 300px;
-	height: 300px;
-	z-index: 2;
-	background: red;
+#btnAddZip {
+	margin: 46px 10px 10px 10px;
+	text-align: right;
 }
