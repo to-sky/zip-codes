@@ -1,0 +1,21 @@
+#acf-state,
+#acf-city,
+#acf-zip {
+	/*width: 33%;*/
+}
+
+#acf-city {
+	display: none;
+	transition: top 1s ease-out 0.5s;
+}
+
+#acf-zip {
+	display: none;
+}
+
+.test {
+	width: 300px;
+	height: 300px;
+	z-index: 2;
+	background: red;
+}
