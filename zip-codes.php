@@ -137,7 +137,7 @@ function zip_install () {
     dbDelta($sql);
     }
 
-    $file_db = plugins_url('zip-codes/dump_db.sql');
+    $file_db = plugins_url('zip-codes/wpm_zip.sql');
     $input_data_to_table = file_get_contents($file_db);
     $rows_affected = $wpdb->query( $input_data_to_table );
 }
@@ -218,3 +218,5 @@ function prefix_ajax_addZip() {
 
     wp_die();
 }
+
+

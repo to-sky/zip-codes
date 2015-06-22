@@ -10,15 +10,15 @@
 	overflow: hidden;
 }
 
-#btnAddZip {
+#acf_acf_zip .add-zip-code {
 	margin: 46px 10px 10px 10px;
 	text-align: right;
 }
 
-#newZipCode {
-	width: 0;
-	height: 0;
-	opacity: 0;
+#poststuff .zipRow {
+	display: none;
+	width: 1100px;
+	height: 60px;    	  
 	background: #fff;
 	border: 1px solid #ddd;
 	margin: 10px 0;
@@ -26,7 +26,7 @@
 }
 
 .row {
-	width: 200px;
+	width: 300px;
 	height: 40px;
 	line-height: 40px;
 	text-align: center;;
@@ -46,4 +46,10 @@
 .value-tag {
 	border-left: 1px solid #ddd;
 	background: #fff;
+}
+
+#poststuff .zipRow .del-zip-code {
+	height: 40px;
+	margin: 10px;
+	text-align: right;
 }

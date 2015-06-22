@@ -1,46 +1,4 @@
--- phpMyAdmin SQL Dump
--- version 3.2.3
--- http://www.phpmyadmin.net
---
--- Host: localhost
--- Generation Time: Jun 16, 2015 at 09:05 AM
--- Server version: 5.1.40
--- PHP Version: 5.3.3
-
-SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
-
-
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8 */;
-
---
--- Database: `oil_live`
---
-
--- --------------------------------------------------------
-
---
--- Table structure for table `wp_q1w2e3zip`
---
-
-CREATE TABLE IF NOT EXISTS `wp_q1w2e3zip` (
-  `zip` char(5) NOT NULL,
-  `city` varchar(64) DEFAULT NULL,
-  `state` char(2) DEFAULT NULL,
-  `latitude` float DEFAULT NULL,
-  `longitude` float NOT NULL,
-  `timezone` int(11) DEFAULT NULL,
-  `dst` int(20) NOT NULL,
-  PRIMARY KEY (`zip`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
-
---
--- Dumping data for table `wp_q1w2e3zip`
---
-
-INSERT INTO `wp_q1w2e3zip` (`zip`, `city`, `state`, `latitude`, `longitude`, `timezone`, `dst`) VALUES
+INSERT INTO `wp_zipcodes` (`zip`, `city`, `state`, `latitude`, `longitude`, `timezone`, `dst`) VALUES
 ('00210', 'Portsmouth', 'NH', 43.0059, -71.0132, -5, 1),
 ('00211', 'Portsmouth', 'NH', 43.0059, -71.0132, -5, 1),
 ('00212', 'Portsmouth', 'NH', 43.0059, -71.0132, -5, 1),
@@ -972,8 +930,7 @@ INSERT INTO `wp_q1w2e3zip` (`zip`, `city`, `state`, `latitude`, `longitude`, `ti
 ('02651', 'North Eastham', 'MA', 41.8243, -69.9818, -5, 1),
 ('02652', 'North Truro', 'MA', 42.0289, -70.0794, -5, 1),
 ('02653', 'Orleans', 'MA', 41.7776, -69.9731, -5, 1),
-('02654', 'Nantucket', 'MA', 41.544, -69.9872, -5, 1);
-INSERT INTO `wp_q1w2e3zip` (`zip`, `city`, `state`, `latitude`, `longitude`, `timezone`, `dst`) VALUES
+('02654', 'Nantucket', 'MA', 41.544, -69.9872, -5, 1),
 ('02655', 'Osterville', 'MA', 41.6329, -70.3869, -5, 1),
 ('02657', 'Provincetown', 'MA', 42.0534, -70.1895, -5, 1),
 ('02659', 'South Chatham', 'MA', 41.6786, -70.0249, -5, 1),
@@ -1896,8 +1853,7 @@ INSERT INTO `wp_q1w2e3zip` (`zip`, `city`, `state`, `latitude`, `longitude`, `ti
 ('04923', 'Cambridge', 'ME', 45.0317, -69.4467, -5, 1),
 ('04924', 'Canaan', 'ME', 44.7656, -69.5569, -5, 1),
 ('04925', 'Caratunk', 'ME', 45.2494, -69.9433, -5, 1),
-('04926', 'China', 'ME', 44.3912, -69.5383, -5, 1);
-INSERT INTO `wp_q1w2e3zip` (`zip`, `city`, `state`, `latitude`, `longitude`, `timezone`, `dst`) VALUES
+('04926', 'China', 'ME', 44.3912, -69.5383, -5, 1),
 ('04927', 'Clinton', 'ME', 44.6595, -69.5306, -5, 1),
 ('04928', 'Corinna', 'ME', 44.949, -69.2733, -5, 1),
 ('04929', 'Detroit', 'ME', 44.7859, -69.3038, -5, 1),
@@ -2815,8 +2771,7 @@ INSERT INTO `wp_q1w2e3zip` (`zip`, `city`, `state`, `latitude`, `longitude`, `ti
 ('07099', 'Kearny', 'NJ', 40.7328, -74.0755, -5, 1),
 ('07101', 'Newark', 'NJ', 40.7361, -74.2251, -5, 1),
 ('07102', 'Newark', 'NJ', 40.7353, -74.1733, -5, 1),
-('07103', 'Newark', 'NJ', 40.7385, -74.1951, -5, 1);
-INSERT INTO `wp_q1w2e3zip` (`zip`, `city`, `state`, `latitude`, `longitude`, `timezone`, `dst`) VALUES
+('07103', 'Newark', 'NJ', 40.7385, -74.1951, -5, 1),
 ('07104', 'Newark', 'NJ', 40.7677, -74.1683, -5, 1),
 ('07105', 'Newark', 'NJ', 40.7258, -74.1521, -5, 1),
 ('07106', 'Newark', 'NJ', 40.7423, -74.2301, -5, 1),
@@ -3742,8 +3697,7 @@ INSERT INTO `wp_q1w2e3zip` (`zip`, `city`, `state`, `latitude`, `longitude`, `ti
 ('10562', 'Ossining', 'NY', 41.1768, -73.8474, -5, 1),
 ('10566', 'Peekskill', 'NY', 41.2883, -73.9193, -5, 1),
 ('10567', 'Cortlandt Manor', 'NY', 41.3008, -73.8908, -5, 1),
-('10570', 'Pleasantville', 'NY', 41.1324, -73.7892, -5, 1);
-INSERT INTO `wp_q1w2e3zip` (`zip`, `city`, `state`, `latitude`, `longitude`, `timezone`, `dst`) VALUES
+('10570', 'Pleasantville', 'NY', 41.1324, -73.7892, -5, 1),
 ('10571', 'Pleasantville', 'NY', 41.119, -73.733, -5, 1),
 ('10572', 'Pleasantville', 'NY', 41.119, -73.733, -5, 1),
 ('10573', 'Port Chester', 'NY', 41.0104, -73.6733, -5, 1),
@@ -4660,8 +4614,7 @@ INSERT INTO `wp_q1w2e3zip` (`zip`, `city`, `state`, `latitude`, `longitude`, `ti
 ('12783', 'Swan Lake', 'NY', 41.7365, -74.8263, -5, 1),
 ('12784', 'Thompsonville', 'NY', 41.6761, -74.6217, -5, 1),
 ('12785', 'Westbrookville', 'NY', 41.5181, -74.5757, -5, 1),
-('12786', 'White Lake', 'NY', 41.649, -74.8575, -5, 1);
-INSERT INTO `wp_q1w2e3zip` (`zip`, `city`, `state`, `latitude`, `longitude`, `timezone`, `dst`) VALUES
+('12786', 'White Lake', 'NY', 41.649, -74.8575, -5, 1),
 ('12787', 'White Sulphur Springs', 'NY', 41.8085, -74.846, -5, 1),
 ('12788', 'Woodbourne', 'NY', 41.7845, -74.5911, -5, 1),
 ('12789', 'Woodridge', 'NY', 41.7081, -74.5698, -5, 1),
@@ -5585,8 +5538,7 @@ INSERT INTO `wp_q1w2e3zip` (`zip`, `city`, `state`, `latitude`, `longitude`, `ti
 ('14622', 'Rochester', 'NY', 43.2154, -77.5564, -5, 1),
 ('14623', 'Rochester', 'NY', 43.0876, -77.6352, -5, 1),
 ('14624', 'Rochester', 'NY', 43.1272, -77.7246, -5, 1),
-('14625', 'Rochester', 'NY', 43.1437, -77.5111, -5, 1);
-INSERT INTO `wp_q1w2e3zip` (`zip`, `city`, `state`, `latitude`, `longitude`, `timezone`, `dst`) VALUES
+('14625', 'Rochester', 'NY', 43.1437, -77.5111, -5, 1),
 ('14626', 'Rochester', 'NY', 43.2146, -77.7063, -5, 1),
 ('14627', 'Rochester', 'NY', 43.1275, -77.6277, -5, 1),
 ('14638', 'Rochester', 'NY', 43.286, -77.6843, -5, 1),
@@ -6514,8 +6466,7 @@ INSERT INTO `wp_q1w2e3zip` (`zip`, `city`, `state`, `latitude`, `longitude`, `ti
 ('16334', 'Marble', 'PA', 41.3163, -79.4416, -5, 1),
 ('16335', 'Meadville', 'PA', 41.6375, -80.1521, -5, 1),
 ('16340', 'Pittsfield', 'PA', 41.8269, -79.4223, -5, 1),
-('16341', 'Pleasantville', 'PA', 41.5601, -79.5385, -5, 1);
-INSERT INTO `wp_q1w2e3zip` (`zip`, `city`, `state`, `latitude`, `longitude`, `timezone`, `dst`) VALUES
+('16341', 'Pleasantville', 'PA', 41.5601, -79.5385, -5, 1),
 ('16342', 'Polk', 'PA', 41.3359, -79.9365, -5, 1),
 ('16343', 'Reno', 'PA', 41.4107, -79.7501, -5, 1),
 ('16344', 'Rouseville', 'PA', 41.4714, -79.6895, -5, 1),
@@ -7438,8 +7389,7 @@ INSERT INTO `wp_q1w2e3zip` (`zip`, `city`, `state`, `latitude`, `longitude`, `ti
 ('18355', 'Scotrun', 'PA', 41.0748, -75.3626, -5, 1),
 ('18356', 'Shawnee On Delaware', 'PA', 41.0103, -75.1, -5, 1),
 ('18357', 'Skytop', 'PA', 41.2311, -75.2388, -5, 1),
-('18360', 'Stroudsburg', 'PA', 40.9831, -75.2603, -5, 1);
-INSERT INTO `wp_q1w2e3zip` (`zip`, `city`, `state`, `latitude`, `longitude`, `timezone`, `dst`) VALUES
+('18360', 'Stroudsburg', 'PA', 40.9831, -75.2603, -5, 1),
 ('18370', 'Swiftwater', 'PA', 41.0954, -75.3191, -5, 1),
 ('18371', 'Tamiment', 'PA', 41.3409, -75.0241, -5, 1),
 ('18372', 'Tannersville', 'PA', 41.0484, -75.3186, -5, 1),
@@ -8356,8 +8306,7 @@ INSERT INTO `wp_q1w2e3zip` (`zip`, `city`, `state`, `latitude`, `longitude`, `ti
 ('20307', 'Washington', 'DC', 38.8933, -77.0146, -5, 1),
 ('20310', 'Washington', 'DC', 38.8933, -77.0146, -5, 1),
 ('20314', 'Washington', 'DC', 38.8933, -77.0146, -5, 1),
-('20315', 'Washington', 'DC', 38.9289, -77.0179, -5, 1);
-INSERT INTO `wp_q1w2e3zip` (`zip`, `city`, `state`, `latitude`, `longitude`, `timezone`, `dst`) VALUES
+('20315', 'Washington', 'DC', 38.9289, -77.0179, -5, 1),
 ('20317', 'Washington', 'DC', 38.9312, -77.0103, -5, 1),
 ('20318', 'Washington', 'DC', 38.8933, -77.0146, -5, 1),
 ('20319', 'Washington', 'DC', 38.8669, -77.0142, -5, 1),
@@ -9275,8 +9224,7 @@ INSERT INTO `wp_q1w2e3zip` (`zip`, `city`, `state`, `latitude`, `longitude`, `ti
 ('22448', 'Dahlgren', 'VA', 38.3401, -77.0327, -5, 1),
 ('22451', 'Dogue', 'VA', 38.2711, -77.1726, -5, 1),
 ('22454', 'Dunnsville', 'VA', 37.8548, -76.813, -5, 1),
-('22456', 'Edwardsville', 'VA', 37.8523, -76.4051, -5, 1);
-INSERT INTO `wp_q1w2e3zip` (`zip`, `city`, `state`, `latitude`, `longitude`, `timezone`, `dst`) VALUES
+('22456', 'Edwardsville', 'VA', 37.8523, -76.4051, -5, 1),
 ('22460', 'Farnham', 'VA', 37.859, -76.6326, -5, 1),
 ('22463', 'Garrisonville', 'VA', 38.4684, -77.4612, -5, 1),
 ('22469', 'Hague', 'VA', 38.094, -76.6405, -5, 1),
@@ -10204,8 +10152,7 @@ INSERT INTO `wp_q1w2e3zip` (`zip`, `city`, `state`, `latitude`, `longitude`, `ti
 ('24468', 'Mustoe', 'VA', 38.386, -79.5592, -5, 1),
 ('24469', 'New Hope', 'VA', 38.1797, -79.1413, -5, 1),
 ('24471', 'Port Republic', 'VA', 38.3103, -78.8041, -5, 1),
-('24472', 'Raphine', 'VA', 37.9366, -79.2283, -5, 1);
-INSERT INTO `wp_q1w2e3zip` (`zip`, `city`, `state`, `latitude`, `longitude`, `timezone`, `dst`) VALUES
+('24472', 'Raphine', 'VA', 37.9366, -79.2283, -5, 1),
 ('24473', 'Rockbridge Baths', 'VA', 37.913, -79.3991, -5, 1),
 ('24474', 'Selma', 'VA', 37.8053, -79.8475, -5, 1),
 ('24475', 'Spottswood', 'VA', 37.9651, -79.2357, -5, 1),
@@ -11143,8 +11090,7 @@ INSERT INTO `wp_q1w2e3zip` (`zip`, `city`, `state`, `latitude`, `longitude`, `ti
 ('26534', 'Granville', 'WV', 39.6467, -79.9883, -5, 1),
 ('26535', 'Hazelton', 'WV', 39.4581, -79.6882, -5, 1),
 ('26537', 'Kingwood', 'WV', 39.4729, -79.6987, -5, 1),
-('26541', 'Maidsville', 'WV', 39.6923, -79.9734, -5, 1);
-INSERT INTO `wp_q1w2e3zip` (`zip`, `city`, `state`, `latitude`, `longitude`, `timezone`, `dst`) VALUES
+('26541', 'Maidsville', 'WV', 39.6923, -79.9734, -5, 1),
 ('26542', 'Masontown', 'WV', 39.561, -79.7953, -5, 1),
 ('26543', 'Osage', 'WV', 39.6606, -80.0072, -5, 1),
 ('26544', 'Pentress', 'WV', 39.707, -80.1645, -5, 1),
@@ -12079,8 +12025,7 @@ INSERT INTO `wp_q1w2e3zip` (`zip`, `city`, `state`, `latitude`, `longitude`, `ti
 ('28459', 'Shallotte', 'NC', 33.9334, -78.4129, -5, 1),
 ('28460', 'Sneads Ferry', 'NC', 34.5207, -77.421, -5, 1),
 ('28461', 'Southport', 'NC', 33.9631, -78.0574, -5, 1),
-('28462', 'Supply', 'NC', 33.9743, -78.3096, -5, 1);
-INSERT INTO `wp_q1w2e3zip` (`zip`, `city`, `state`, `latitude`, `longitude`, `timezone`, `dst`) VALUES
+('28462', 'Supply', 'NC', 33.9743, -78.3096, -5, 1),
 ('28463', 'Tabor City', 'NC', 34.1248, -78.8219, -5, 1),
 ('28464', 'Teachey', 'NC', 34.7722, -78.0139, -5, 1),
 ('28465', 'Oak Island', 'NC', 33.9155, -78.1286, -5, 1),
@@ -13010,8 +12955,7 @@ INSERT INTO `wp_q1w2e3zip` (`zip`, `city`, `state`, `latitude`, `longitude`, `ti
 ('30091', 'Norcross', 'GA', 33.9604, -84.0379, -5, 1),
 ('30092', 'Norcross', 'GA', 33.9692, -84.2326, -5, 1),
 ('30093', 'Norcross', 'GA', 33.91, -84.1794, -5, 1),
-('30094', 'Conyers', 'GA', 33.6219, -84.0463, -5, 1);
-INSERT INTO `wp_q1w2e3zip` (`zip`, `city`, `state`, `latitude`, `longitude`, `timezone`, `dst`) VALUES
+('30094', 'Conyers', 'GA', 33.6219, -84.0463, -5, 1),
 ('30095', 'Duluth', 'GA', 34.0256, -84.1304, -5, 1),
 ('30096', 'Duluth', 'GA', 33.9794, -84.1512, -5, 1),
 ('30097', 'Duluth', 'GA', 34.0206, -84.1429, -5, 1),
@@ -13958,8 +13902,7 @@ INSERT INTO `wp_q1w2e3zip` (`zip`, `city`, `state`, `latitude`, `longitude`, `ti
 ('32063', 'Macclenny', 'FL', 30.2677, -82.1246, -5, 1),
 ('32064', 'Live Oak', 'FL', 30.3315, -82.9572, -5, 1),
 ('32065', 'Orange Park', 'FL', 30.133, -81.779, -5, 1),
-('32066', 'Mayo', 'FL', 30.0848, -83.2185, -5, 1);
-INSERT INTO `wp_q1w2e3zip` (`zip`, `city`, `state`, `latitude`, `longitude`, `timezone`, `dst`) VALUES
+('32066', 'Mayo', 'FL', 30.0848, -83.2185, -5, 1),
 ('32067', 'Orange Park', 'FL', 29.9561, -81.8151, -5, 1),
 ('32068', 'Middleburg', 'FL', 30.0749, -81.8793, -5, 1),
 ('32071', 'O Brien', 'FL', 30.0391, -82.9448, -5, 1),
@@ -14875,8 +14818,7 @@ INSERT INTO `wp_q1w2e3zip` (`zip`, `city`, `state`, `latitude`, `longitude`, `ti
 ('33537', 'Lacoochee', 'FL', 28.3248, -82.4818, -5, 1),
 ('33538', 'Lake Panasoffkee', 'FL', 28.8353, -82.1482, -5, 1),
 ('33539', 'Zephyrhills', 'FL', 28.2131, -82.1657, -5, 1),
-('33540', 'Zephyrhills', 'FL', 28.2353, -82.1687, -5, 1);
-INSERT INTO `wp_q1w2e3zip` (`zip`, `city`, `state`, `latitude`, `longitude`, `timezone`, `dst`) VALUES
+('33540', 'Zephyrhills', 'FL', 28.2353, -82.1687, -5, 1),
 ('33541', 'Zephyrhills', 'FL', 28.2346, -82.2002, -5, 1),
 ('33542', 'Zephyrhills', 'FL', 28.2385, -82.1819, -5, 1),
 ('33543', 'Zephyrhills', 'FL', 28.1874, -82.316, -5, 1),
@@ -15802,8 +15744,7 @@ INSERT INTO `wp_q1w2e3zip` (`zip`, `city`, `state`, `latitude`, `longitude`, `ti
 ('35802', 'Huntsville', 'AL', 34.666, -86.5593, -6, 1),
 ('35803', 'Huntsville', 'AL', 34.603, -86.5429, -6, 1),
 ('35804', 'Huntsville', 'AL', 34.7284, -86.5853, -6, 1),
-('35805', 'Huntsville', 'AL', 34.7113, -86.6169, -6, 1);
-INSERT INTO `wp_q1w2e3zip` (`zip`, `city`, `state`, `latitude`, `longitude`, `timezone`, `dst`) VALUES
+('35805', 'Huntsville', 'AL', 34.7113, -86.6169, -6, 1),
 ('35806', 'Huntsville', 'AL', 34.7481, -86.6832, -6, 1),
 ('35807', 'Huntsville', 'AL', 34.734, -86.5229, -6, 1),
 ('35808', 'Huntsville', 'AL', 34.6231, -86.6647, -6, 1),
@@ -16735,8 +16676,7 @@ INSERT INTO `wp_q1w2e3zip` (`zip`, `city`, `state`, `latitude`, `longitude`, `ti
 ('37868', 'Pigeon Forge', 'TN', 35.8809, -83.5561, -5, 1),
 ('37869', 'Sneedville', 'TN', 36.5213, -83.2282, -5, 1),
 ('37870', 'Speedwell', 'TN', 36.4549, -83.8546, -5, 1),
-('37871', 'Strawberry Plains', 'TN', 36.0405, -83.6793, -5, 1);
-INSERT INTO `wp_q1w2e3zip` (`zip`, `city`, `state`, `latitude`, `longitude`, `timezone`, `dst`) VALUES
+('37871', 'Strawberry Plains', 'TN', 36.0405, -83.6793, -5, 1),
 ('37872', 'Sunbright', 'TN', 36.2628, -84.6655, -5, 1),
 ('37873', 'Surgoinsville', 'TN', 36.5128, -82.8353, -5, 1),
 ('37874', 'Sweetwater', 'TN', 35.5987, -84.4661, -5, 1),
@@ -17678,8 +17618,7 @@ INSERT INTO `wp_q1w2e3zip` (`zip`, `city`, `state`, `latitude`, `longitude`, `ti
 ('40010', 'Buckner', 'KY', 38.3665, -85.4508, -5, 1),
 ('40011', 'Campbellsburg', 'KY', 38.5345, -85.1718, -5, 1),
 ('40012', 'Chaplin', 'KY', 37.9059, -85.2124, -5, 1),
-('40013', 'Coxs Creek', 'KY', 37.9286, -85.4904, -5, 1);
-INSERT INTO `wp_q1w2e3zip` (`zip`, `city`, `state`, `latitude`, `longitude`, `timezone`, `dst`) VALUES
+('40013', 'Coxs Creek', 'KY', 37.9286, -85.4904, -5, 1),
 ('40014', 'Crestwood', 'KY', 38.3351, -85.4584, -5, 1),
 ('40018', 'Eastwood', 'KY', 38.2298, -85.663, -5, 1),
 ('40019', 'Eminence', 'KY', 38.3703, -85.1721, -5, 1),
@@ -18618,8 +18557,7 @@ INSERT INTO `wp_q1w2e3zip` (`zip`, `city`, `state`, `latitude`, `longitude`, `ti
 ('42453', 'Saint Charles', 'KY', 37.1437, -87.5966, -6, 1),
 ('42455', 'Sebree', 'KY', 37.6009, -87.5264, -6, 1),
 ('42456', 'Slaughters', 'KY', 37.5144, -87.4997, -6, 1),
-('42457', 'Smith Mills', 'KY', 37.8013, -87.7659, -6, 1);
-INSERT INTO `wp_q1w2e3zip` (`zip`, `city`, `state`, `latitude`, `longitude`, `timezone`, `dst`) VALUES
+('42457', 'Smith Mills', 'KY', 37.8013, -87.7659, -6, 1),
 ('42458', 'Spottsville', 'KY', 37.8601, -87.4187, -6, 1),
 ('42459', 'Sturgis', 'KY', 37.5587, -87.9963, -6, 1),
 ('42460', 'Sullivan', 'KY', 37.494, -87.9328, -6, 1),
@@ -19551,8 +19489,7 @@ INSERT INTO `wp_q1w2e3zip` (`zip`, `city`, `state`, `latitude`, `longitude`, `ti
 ('44661', 'Nashville', 'OH', 40.596, -82.1132, -5, 1),
 ('44662', 'Navarre', 'OH', 40.7229, -81.5407, -5, 1),
 ('44663', 'New Philadelphia', 'OH', 40.4772, -81.4444, -5, 1),
-('44665', 'North Georgetown', 'OH', 40.8436, -80.9794, -5, 1);
-INSERT INTO `wp_q1w2e3zip` (`zip`, `city`, `state`, `latitude`, `longitude`, `timezone`, `dst`) VALUES
+('44665', 'North Georgetown', 'OH', 40.8436, -80.9794, -5, 1),
 ('44666', 'North Lawrence', 'OH', 40.8403, -81.6272, -5, 1),
 ('44667', 'Orrville', 'OH', 40.8351, -81.7701, -5, 1),
 ('44669', 'Paris', 'OH', 40.7988, -81.1604, -5, 1),
@@ -20483,8 +20420,7 @@ INSERT INTO `wp_q1w2e3zip` (`zip`, `city`, `state`, `latitude`, `longitude`, `ti
 ('46553', 'New Paris', 'IN', 41.4892, -85.8408, -5, 0),
 ('46554', 'North Liberty', 'IN', 41.5478, -86.4205, -5, 0),
 ('46555', 'North Webster', 'IN', 41.3282, -85.6852, -5, 0),
-('46556', 'Notre Dame', 'IN', 41.7014, -86.245, -5, 0);
-INSERT INTO `wp_q1w2e3zip` (`zip`, `city`, `state`, `latitude`, `longitude`, `timezone`, `dst`) VALUES
+('46556', 'Notre Dame', 'IN', 41.7014, -86.245, -5, 0),
 ('46561', 'Osceola', 'IN', 41.6727, -86.0788, -5, 0),
 ('46562', 'Pierceton', 'IN', 41.2138, -85.704, -5, 0),
 ('46563', 'Plymouth', 'IN', 41.3472, -86.3202, -5, 0),
@@ -21415,8 +21351,7 @@ INSERT INTO `wp_q1w2e3zip` (`zip`, `city`, `state`, `latitude`, `longitude`, `ti
 ('48219', 'Detroit', 'MI', 42.4252, -83.249, -5, 1),
 ('48220', 'Ferndale', 'MI', 42.461, -83.134, -5, 1),
 ('48221', 'Detroit', 'MI', 42.4268, -83.1497, -5, 1),
-('48222', 'Detroit', 'MI', 42.2399, -83.1508, -5, 1);
-INSERT INTO `wp_q1w2e3zip` (`zip`, `city`, `state`, `latitude`, `longitude`, `timezone`, `dst`) VALUES
+('48222', 'Detroit', 'MI', 42.2399, -83.1508, -5, 1),
 ('48223', 'Detroit', 'MI', 42.3946, -83.2442, -5, 1),
 ('48224', 'Detroit', 'MI', 42.4105, -82.9435, -5, 1),
 ('48225', 'Harper Woods', 'MI', 42.4382, -82.9283, -5, 1),
@@ -22356,8 +22291,7 @@ INSERT INTO `wp_q1w2e3zip` (`zip`, `city`, `state`, `latitude`, `longitude`, `ti
 ('49853', 'McMillan', 'MI', 46.3013, -85.7232, -5, 1),
 ('49854', 'Manistique', 'MI', 46.0421, -86.3395, -5, 1),
 ('49855', 'Marquette', 'MI', 46.5544, -87.4222, -5, 1),
-('49858', 'Menominee', 'MI', 45.1431, -87.609, -6, 1);
-INSERT INTO `wp_q1w2e3zip` (`zip`, `city`, `state`, `latitude`, `longitude`, `timezone`, `dst`) VALUES
+('49858', 'Menominee', 'MI', 45.1431, -87.609, -6, 1),
 ('49861', 'Michigamme', 'MI', 46.5408, -88.1474, -5, 1),
 ('49862', 'Munising', 'MI', 46.375, -86.7061, -5, 1),
 ('49863', 'Nadeau', 'MI', 45.6107, -87.5541, -6, 1),
@@ -23302,8 +23236,7 @@ INSERT INTO `wp_q1w2e3zip` (`zip`, `city`, `state`, `latitude`, `longitude`, `ti
 ('52246', 'Iowa City', 'IA', 41.6509, -91.5606, -6, 1),
 ('52247', 'Kalona', 'IA', 41.5039, -91.7097, -6, 1),
 ('52248', 'Keota', 'IA', 41.341, -91.9417, -6, 1),
-('52249', 'Keystone', 'IA', 42.0059, -92.1967, -6, 1);
-INSERT INTO `wp_q1w2e3zip` (`zip`, `city`, `state`, `latitude`, `longitude`, `timezone`, `dst`) VALUES
+('52249', 'Keystone', 'IA', 42.0059, -92.1967, -6, 1),
 ('52251', 'Ladora', 'IA', 41.7412, -92.192, -6, 1),
 ('52252', 'Langworthy', 'IA', 42.192, -91.2258, -6, 1),
 ('52253', 'Lisbon', 'IA', 41.9092, -91.3621, -6, 1),
@@ -24239,8 +24172,7 @@ INSERT INTO `wp_q1w2e3zip` (`zip`, `city`, `state`, `latitude`, `longitude`, `ti
 ('54636', 'Holmen', 'WI', 43.9788, -91.2512, -6, 1),
 ('54637', 'Hustler', 'WI', 43.8806, -90.2742, -6, 1),
 ('54638', 'Kendall', 'WI', 43.7954, -90.3761, -6, 1),
-('54639', 'La Farge', 'WI', 43.6106, -90.6211, -6, 1);
-INSERT INTO `wp_q1w2e3zip` (`zip`, `city`, `state`, `latitude`, `longitude`, `timezone`, `dst`) VALUES
+('54639', 'La Farge', 'WI', 43.6106, -90.6211, -6, 1),
 ('54640', 'Lynxville', 'WI', 43.2462, -91.0543, -6, 1),
 ('54641', 'Mather', 'WI', 43.9452, -90.0495, -6, 1),
 ('54642', 'Melrose', 'WI', 44.1517, -91.0456, -6, 1),
@@ -25175,8 +25107,7 @@ INSERT INTO `wp_q1w2e3zip` (`zip`, `city`, `state`, `latitude`, `longitude`, `ti
 ('56246', 'Hawick', 'MN', 45.3437, -94.8301, -6, 1),
 ('56248', 'Herman', 'MN', 45.8001, -96.1389, -6, 1),
 ('56249', 'Holloway', 'MN', 45.2995, -95.8996, -6, 1),
-('56251', 'Kandiyohi', 'MN', 45.1331, -94.9198, -6, 1);
-INSERT INTO `wp_q1w2e3zip` (`zip`, `city`, `state`, `latitude`, `longitude`, `timezone`, `dst`) VALUES
+('56251', 'Kandiyohi', 'MN', 45.1331, -94.9198, -6, 1),
 ('56252', 'Kerkhoven', 'MN', 45.1855, -95.302, -6, 1),
 ('56253', 'Lake Lillian', 'MN', 44.9592, -94.8883, -6, 1),
 ('56255', 'Lucan', 'MN', 44.3974, -95.4201, -6, 1),
@@ -26126,8 +26057,7 @@ INSERT INTO `wp_q1w2e3zip` (`zip`, `city`, `state`, `latitude`, `longitude`, `ti
 ('58348', 'Maddock', 'ND', 47.9552, -99.5232, -6, 1),
 ('58351', 'Minnewaukan', 'ND', 48.1006, -99.2972, -6, 1),
 ('58352', 'Munich', 'ND', 48.696, -98.8727, -6, 1),
-('58353', 'Mylo', 'ND', 48.6369, -99.6167, -6, 1);
-INSERT INTO `wp_q1w2e3zip` (`zip`, `city`, `state`, `latitude`, `longitude`, `timezone`, `dst`) VALUES
+('58353', 'Mylo', 'ND', 48.6369, -99.6167, -6, 1),
 ('58355', 'Nekoma', 'ND', 48.5918, -98.3683, -6, 1),
 ('58356', 'New Rockford', 'ND', 47.6696, -99.1055, -6, 1),
 ('58357', 'Oberon', 'ND', 47.9311, -99.2227, -6, 1),
@@ -27072,8 +27002,7 @@ INSERT INTO `wp_q1w2e3zip` (`zip`, `city`, `state`, `latitude`, `longitude`, `ti
 ('60501', 'Summit Argo', 'IL', 41.7848, -87.81, -6, 1),
 ('60504', 'Aurora', 'IL', 41.7601, -88.2522, -6, 1),
 ('60505', 'Aurora', 'IL', 41.7561, -88.297, -6, 1),
-('60506', 'Aurora', 'IL', 41.766, -88.3525, -6, 1);
-INSERT INTO `wp_q1w2e3zip` (`zip`, `city`, `state`, `latitude`, `longitude`, `timezone`, `dst`) VALUES
+('60506', 'Aurora', 'IL', 41.766, -88.3525, -6, 1),
 ('60507', 'Aurora', 'IL', 41.937, -88.4202, -6, 1),
 ('60510', 'Batavia', 'IL', 41.8452, -88.31, -6, 1),
 ('60511', 'Big Rock', 'IL', 41.7554, -88.5487, -6, 1),
@@ -28018,8 +27947,7 @@ INSERT INTO `wp_q1w2e3zip` (`zip`, `city`, `state`, `latitude`, `longitude`, `ti
 ('62376', 'Ursa', 'IL', 40.0962, -91.3847, -6, 1),
 ('62378', 'Versailles', 'IL', 39.8848, -90.6289, -6, 1),
 ('62379', 'Warsaw', 'IL', 40.3144, -91.4064, -6, 1),
-('62380', 'West Point', 'IL', 40.2335, -91.1973, -6, 1);
-INSERT INTO `wp_q1w2e3zip` (`zip`, `city`, `state`, `latitude`, `longitude`, `timezone`, `dst`) VALUES
+('62380', 'West Point', 'IL', 40.2335, -91.1973, -6, 1),
 ('62394', 'Equality', 'IL', 37.7267, -88.3724, -6, 1),
 ('62401', 'Effingham', 'IL', 39.1238, -88.56, -6, 1),
 ('62407', 'Summit', 'IL', 39.1482, -88.5938, -6, 1),
@@ -28952,8 +28880,7 @@ INSERT INTO `wp_q1w2e3zip` (`zip`, `city`, `state`, `latitude`, `longitude`, `ti
 ('64121', 'Kansas City', 'MO', 39.035, -94.3567, -6, 1),
 ('64123', 'Kansas City', 'MO', 39.1136, -94.5229, -6, 1),
 ('64124', 'Kansas City', 'MO', 39.1073, -94.5398, -6, 1),
-('64125', 'Kansas City', 'MO', 39.1049, -94.4954, -6, 1);
-INSERT INTO `wp_q1w2e3zip` (`zip`, `city`, `state`, `latitude`, `longitude`, `timezone`, `dst`) VALUES
+('64125', 'Kansas City', 'MO', 39.1049, -94.4954, -6, 1),
 ('64126', 'Kansas City', 'MO', 39.0923, -94.4995, -6, 1),
 ('64127', 'Kansas City', 'MO', 39.0897, -94.5397, -6, 1),
 ('64128', 'Kansas City', 'MO', 39.0668, -94.5365, -6, 1),
@@ -29886,8 +29813,7 @@ INSERT INTO `wp_q1w2e3zip` (`zip`, `city`, `state`, `latitude`, `longitude`, `ti
 ('66629', 'Topeka', 'KS', 39.0429, -95.7697, -6, 1),
 ('66634', 'Topeka', 'KS', 39.0429, -95.7697, -6, 1),
 ('66635', 'St. George', 'KS', 39.1991, -96.4389, -6, 1),
-('66636', 'Topeka', 'KS', 39.0429, -95.7697, -6, 1);
-INSERT INTO `wp_q1w2e3zip` (`zip`, `city`, `state`, `latitude`, `longitude`, `timezone`, `dst`) VALUES
+('66636', 'Topeka', 'KS', 39.0429, -95.7697, -6, 1),
 ('66637', 'Topeka', 'KS', 39.0429, -95.7697, -6, 1),
 ('66638', 'Topeka', 'KS', 39.0429, -95.7697, -6, 1),
 ('66642', 'Topeka', 'KS', 39.0429, -95.7697, -6, 1),
@@ -30845,8 +30771,7 @@ INSERT INTO `wp_q1w2e3zip` (`zip`, `city`, `state`, `latitude`, `longitude`, `ti
 ('68797', 'Sutton', 'NE', 40.6071, -97.8595, -6, 1),
 ('68801', 'Grand Island', 'NE', 40.9228, -98.3309, -6, 1),
 ('68802', 'Grand Island', 'NE', 40.8725, -98.5021, -6, 1),
-('68803', 'Grand Island', 'NE', 40.9169, -98.3875, -6, 1);
-INSERT INTO `wp_q1w2e3zip` (`zip`, `city`, `state`, `latitude`, `longitude`, `timezone`, `dst`) VALUES
+('68803', 'Grand Island', 'NE', 40.9169, -98.3875, -6, 1),
 ('68810', 'Alda', 'NE', 40.8605, -98.4705, -6, 1),
 ('68812', 'Amherst', 'NE', 40.8877, -99.2839, -6, 1),
 ('68813', 'Anselmo', 'NE', 41.7268, -99.8298, -6, 1),
@@ -31784,8 +31709,7 @@ INSERT INTO `wp_q1w2e3zip` (`zip`, `city`, `state`, `latitude`, `longitude`, `ti
 ('71416', 'Cloutierville', 'LA', 31.5411, -92.8984, -6, 1),
 ('71417', 'Colfax', 'LA', 31.5254, -92.6815, -6, 1),
 ('71418', 'Columbia', 'LA', 32.1301, -92.0676, -6, 1),
-('71419', 'Converse', 'LA', 31.8044, -93.7184, -6, 1);
-INSERT INTO `wp_q1w2e3zip` (`zip`, `city`, `state`, `latitude`, `longitude`, `timezone`, `dst`) VALUES
+('71419', 'Converse', 'LA', 31.8044, -93.7184, -6, 1),
 ('71422', 'Dodson', 'LA', 32.0812, -92.6398, -6, 1),
 ('71423', 'Dry Prong', 'LA', 31.5631, -92.5495, -6, 1),
 ('71424', 'Elmer', 'LA', 31.1686, -92.6977, -6, 1),
@@ -32721,8 +32645,7 @@ INSERT INTO `wp_q1w2e3zip` (`zip`, `city`, `state`, `latitude`, `longitude`, `ti
 ('73159', 'Oklahoma City', 'OK', 35.3864, -97.5573, -6, 1),
 ('73160', 'Oklahoma City', 'OK', 35.3438, -97.486, -6, 1),
 ('73162', 'Oklahoma City', 'OK', 35.5793, -97.6376, -6, 1),
-('73163', 'Oklahoma City', 'OK', 35.5514, -97.4075, -6, 1);
-INSERT INTO `wp_q1w2e3zip` (`zip`, `city`, `state`, `latitude`, `longitude`, `timezone`, `dst`) VALUES
+('73163', 'Oklahoma City', 'OK', 35.5514, -97.4075, -6, 1),
 ('73164', 'Oklahoma City', 'OK', 35.5514, -97.4075, -6, 1),
 ('73165', 'Oklahoma City', 'OK', 35.3387, -97.3675, -6, 1),
 ('73167', 'Oklahoma City', 'OK', 35.5514, -97.4075, -6, 1),
@@ -33684,8 +33607,7 @@ INSERT INTO `wp_q1w2e3zip` (`zip`, `city`, `state`, `latitude`, `longitude`, `ti
 ('75450', 'Lake Creek', 'TX', 33.4043, -95.5255, -6, 1),
 ('75451', 'Leesburg', 'TX', 32.9712, -95.1134, -6, 1),
 ('75452', 'Leonard', 'TX', 33.3852, -96.2478, -6, 1),
-('75453', 'Lone Oak', 'TX', 32.9527, -95.9459, -6, 1);
-INSERT INTO `wp_q1w2e3zip` (`zip`, `city`, `state`, `latitude`, `longitude`, `timezone`, `dst`) VALUES
+('75453', 'Lone Oak', 'TX', 32.9527, -95.9459, -6, 1),
 ('75454', 'Melissa', 'TX', 33.2773, -96.5734, -6, 1),
 ('75455', 'Mount Pleasant', 'TX', 33.1667, -94.9814, -6, 1),
 ('75456', 'Mount Pleasant', 'TX', 33.1904, -94.9675, -6, 1),
@@ -34636,8 +34558,7 @@ INSERT INTO `wp_q1w2e3zip` (`zip`, `city`, `state`, `latitude`, `longitude`, `ti
 ('77331', 'Coldspring', 'TX', 30.6193, -95.138, -6, 1),
 ('77332', 'Dallardsville', 'TX', 30.8179, -94.869, -6, 1),
 ('77333', 'Dobbin', 'TX', 30.3533, -95.7783, -6, 1),
-('77334', 'Dodge', 'TX', 30.7585, -95.3688, -6, 1);
-INSERT INTO `wp_q1w2e3zip` (`zip`, `city`, `state`, `latitude`, `longitude`, `timezone`, `dst`) VALUES
+('77334', 'Dodge', 'TX', 30.7585, -95.3688, -6, 1),
 ('77335', 'Goodrich', 'TX', 30.5957, -94.946, -6, 1),
 ('77336', 'Huffman', 'TX', 30.0455, -95.1071, -6, 1),
 ('77337', 'Hufsmith', 'TX', 29.834, -95.4342, -6, 1),
@@ -35574,8 +35495,7 @@ INSERT INTO `wp_q1w2e3zip` (`zip`, `city`, `state`, `latitude`, `longitude`, `ti
 ('78956', 'Schulenburg', 'TX', 29.6807, -96.9196, -6, 1),
 ('78957', 'Smithville', 'TX', 30.0105, -97.1604, -6, 1),
 ('78959', 'Waelder', 'TX', 29.6973, -97.2908, -6, 1),
-('78960', 'Warda', 'TX', 30.0703, -96.9194, -6, 1);
-INSERT INTO `wp_q1w2e3zip` (`zip`, `city`, `state`, `latitude`, `longitude`, `timezone`, `dst`) VALUES
+('78960', 'Warda', 'TX', 30.0703, -96.9194, -6, 1),
 ('78961', 'Round Top', 'TX', 29.6655, -97.0397, -6, 1),
 ('78962', 'Weimar', 'TX', 29.6984, -96.7593, -6, 1),
 ('78963', 'West Point', 'TX', 29.9302, -97.0269, -6, 1),
@@ -36525,8 +36445,7 @@ INSERT INTO `wp_q1w2e3zip` (`zip`, `city`, `state`, `latitude`, `longitude`, `ti
 ('81046', 'Hoehne', 'CO', 37.2796, -104.358, -7, 1),
 ('81047', 'Holly', 'CO', 38.0606, -102.197, -7, 1),
 ('81049', 'Kim', 'CO', 37.2426, -103.471, -7, 1),
-('81050', 'La Junta', 'CO', 37.9959, -103.54, -7, 1);
-INSERT INTO `wp_q1w2e3zip` (`zip`, `city`, `state`, `latitude`, `longitude`, `timezone`, `dst`) VALUES
+('81050', 'La Junta', 'CO', 37.9959, -103.54, -7, 1),
 ('81052', 'Lamar', 'CO', 38.0876, -102.619, -7, 1),
 ('81054', 'Las Animas', 'CO', 38.0374, -103.186, -7, 1),
 ('81055', 'La Veta', 'CO', 37.4998, -105.029, -7, 1),
@@ -37469,8 +37388,7 @@ INSERT INTO `wp_q1w2e3zip` (`zip`, `city`, `state`, `latitude`, `longitude`, `ti
 ('84513', 'Castle Dale', 'UT', 39.2229, -111.006, -7, 1),
 ('84515', 'Cisco', 'UT', 38.9999, -109.615, -7, 1),
 ('84516', 'Clawson', 'UT', 39.0882, -111.055, -7, 1),
-('84518', 'Cleveland', 'UT', 39.35, -110.872, -7, 1);
-INSERT INTO `wp_q1w2e3zip` (`zip`, `city`, `state`, `latitude`, `longitude`, `timezone`, `dst`) VALUES
+('84518', 'Cleveland', 'UT', 39.35, -110.872, -7, 1),
 ('84520', 'East Carbon', 'UT', 39.5696, -110.342, -7, 1),
 ('84521', 'Elmo', 'UT', 39.3673, -110.79, -7, 1),
 ('84522', 'Emery', 'UT', 38.8894, -111.177, -7, 1),
@@ -38411,8 +38329,7 @@ INSERT INTO `wp_q1w2e3zip` (`zip`, `city`, `state`, `latitude`, `longitude`, `ti
 ('87830', 'Reserve', 'NM', 33.6382, -108.664, -7, 1),
 ('87831', 'San Acacia', 'NM', 34.3262, -106.877, -7, 1),
 ('87832', 'San Antonio', 'NM', 34.0463, -106.603, -7, 1),
-('87901', 'Truth Or Consequences', 'NM', 33.1482, -107.187, -7, 1);
-INSERT INTO `wp_q1w2e3zip` (`zip`, `city`, `state`, `latitude`, `longitude`, `timezone`, `dst`) VALUES
+('87901', 'Truth Or Consequences', 'NM', 33.1482, -107.187, -7, 1),
 ('87910', 'Truth or Consequences', 'NM', 33.1278, -107.26, -7, 1),
 ('87930', 'Arrey', 'NM', 32.8075, -107.327, -7, 1),
 ('87931', 'Caballo', 'NM', 32.97, -107.363, -7, 1),
@@ -39341,8 +39258,7 @@ INSERT INTO `wp_q1w2e3zip` (`zip`, `city`, `state`, `latitude`, `longitude`, `ti
 ('91404', 'Van Nuys', 'CA', 33.7866, -118.299, -8, 1),
 ('91405', 'Van Nuys', 'CA', 34.1997, -118.447, -8, 1),
 ('91406', 'Van Nuys', 'CA', 34.2015, -118.494, -8, 1),
-('91407', 'Van Nuys', 'CA', 33.7866, -118.299, -8, 1);
-INSERT INTO `wp_q1w2e3zip` (`zip`, `city`, `state`, `latitude`, `longitude`, `timezone`, `dst`) VALUES
+('91407', 'Van Nuys', 'CA', 33.7866, -118.299, -8, 1),
 ('91408', 'Van Nuys', 'CA', 33.7866, -118.299, -8, 1),
 ('91409', 'Van Nuys', 'CA', 33.7866, -118.299, -8, 1),
 ('91410', 'Van Nuys', 'CA', 33.7866, -118.299, -8, 1),
@@ -40262,8 +40178,7 @@ INSERT INTO `wp_q1w2e3zip` (`zip`, `city`, `state`, `latitude`, `longitude`, `ti
 ('93550', 'Palmdale', 'CA', 34.5655, -118.085, -8, 1),
 ('93551', 'Palmdale', 'CA', 34.6061, -118.185, -8, 1),
 ('93552', 'Palmdale', 'CA', 34.5612, -118.037, -8, 1),
-('93553', 'Pearblossom', 'CA', 34.4876, -117.899, -8, 1);
-INSERT INTO `wp_q1w2e3zip` (`zip`, `city`, `state`, `latitude`, `longitude`, `timezone`, `dst`) VALUES
+('93553', 'Pearblossom', 'CA', 34.4876, -117.899, -8, 1),
 ('93554', 'Randsburg', 'CA', 35.4091, -117.7, -8, 1),
 ('93555', 'Ridgecrest', 'CA', 35.5992, -117.681, -8, 1),
 ('93556', 'Ridgecrest', 'CA', 35.2944, -118.905, -8, 1),
@@ -41192,8 +41107,7 @@ INSERT INTO `wp_q1w2e3zip` (`zip`, `city`, `state`, `latitude`, `longitude`, `ti
 ('95519', 'Mckinleyville', 'CA', 40.9635, -124.073, -8, 1),
 ('95521', 'Arcata', 'CA', 40.8675, -124.075, -8, 1),
 ('95522', 'Arcata', 'CA', 40.8783, -124.076, -8, 1),
-('95524', 'Bayside', 'CA', 40.8229, -124.067, -8, 1);
-INSERT INTO `wp_q1w2e3zip` (`zip`, `city`, `state`, `latitude`, `longitude`, `timezone`, `dst`) VALUES
+('95524', 'Bayside', 'CA', 40.8229, -124.067, -8, 1),
 ('95525', 'Blue Lake', 'CA', 40.9074, -123.883, -8, 1),
 ('95526', 'Bridgeville', 'CA', 40.4134, -123.533, -8, 1),
 ('95527', 'Burnt Ranch', 'CA', 40.8773, -123.457, -8, 1),
@@ -42125,8 +42039,7 @@ INSERT INTO `wp_q1w2e3zip` (`zip`, `city`, `state`, `latitude`, `longitude`, `ti
 ('97533', 'Murphy', 'OR', 42.308, -123.327, -8, 1),
 ('97534', 'O Brien', 'OR', 42.0554, -123.703, -8, 1),
 ('97535', 'Phoenix', 'OR', 42.2708, -122.818, -8, 1),
-('97536', 'Prospect', 'OR', 42.7802, -122.515, -8, 1);
-INSERT INTO `wp_q1w2e3zip` (`zip`, `city`, `state`, `latitude`, `longitude`, `timezone`, `dst`) VALUES
+('97536', 'Prospect', 'OR', 42.7802, -122.515, -8, 1),
 ('97537', 'Rogue River', 'OR', 42.5283, -123.151, -8, 1),
 ('97538', 'Selma', 'OR', 42.2597, -123.548, -8, 1),
 ('97539', 'Shady Cove', 'OR', 42.6124, -122.813, -8, 1),
@@ -43073,8 +42986,7 @@ INSERT INTO `wp_q1w2e3zip` (`zip`, `city`, `state`, `latitude`, `longitude`, `ti
 ('99589', 'Goodnews Bay', 'AK', 59.1259, -161.6, -9, 1),
 ('99590', 'Grayling', 'AK', 62.9081, -160.067, -9, 1),
 ('99591', 'Saint George Island', 'AK', 56.6055, -169.56, -10, 1),
-('99599', 'Anchorage', 'AK', 61.1872, -149.88, -9, 1);
-INSERT INTO `wp_q1w2e3zip` (`zip`, `city`, `state`, `latitude`, `longitude`, `timezone`, `dst`) VALUES
+('99599', 'Anchorage', 'AK', 61.1872, -149.88, -9, 1),
 ('99602', 'Holy Cross', 'AK', 62.198, -159.773, -9, 1),
 ('99603', 'Homer', 'AK', 59.6651, -151.449, -9, 1),
 ('99604', 'Hooper Bay', 'AK', 61.529, -166.096, -9, 1),
