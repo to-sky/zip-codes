@@ -2,8 +2,14 @@
 jQuery(document).ready(function($) {
 	var ajaxurl = 'http://wpmonsters/wp-admin/admin-ajax.php';
 
+	$('#acf-field-city').attr('disabled', true);
+	$('#acf-field-zip').attr('disabled', true);
+
+	/* Handler for input State */
     $('#acf-field-state').on('change', function(){
     	var $this = $(this);
+		$('#acf-field-city').removeAttr('disabled');
+		$('#acf-field-zip').attr('disabled', true);
     	$("#btnAddZip").remove();
     	$('#acf-field-zip')[0].options.length = 0;
 
@@ -19,9 +25,10 @@ jQuery(document).ready(function($) {
     });
 
 
-
+    /* Handler for input City */
     $('#acf-field-city').on('change', function(){
     	$("#btnAddZip").remove();
+		$('#acf-field-zip').removeAttr('disabled');
     	var $this = $(this);
 	    var data = {
 	    	'action': 'addZip',
@@ -32,7 +39,7 @@ jQuery(document).ready(function($) {
 	    	$('#acf-field-zip').html(data);
     	    $('#acf-field-zip').on('change', function(){
 		    	if ($("#btnAddZip").length == 0) {
-		    		$('#acf_acf_zip').append( '<button type="button" id="btnAddZip" >+Add zip</button>').trigger('create' );
+		    		$('#acf_acf_zip').append( '<button type="button" id="btnAddZip" >+Add zip</button>');
 		    		$("#btnAddZip").addClass( 'button button-primary button-large' );
 	    		}		    	
 		    });
@@ -40,10 +47,35 @@ jQuery(document).ready(function($) {
     });
 
 
+	/* Handler for buttom +Add Zip */
     $('#btnAddZip').live('click', function(){
-    	var timestamp = event.timeStamp;
-    	var $fieldsRow = $('<div class="inside"><div id="acf-state" class="field field_type-select field_key-zip_state" data-field_name="state" data-field_key="zip_state" data-field_type="select"><p class="label"><label for="acf-field-state">State</label></p><select id="acf-field-state" class="select" name="fields[zip_state_' + timestamp + ']"><option value="0" selected="selected">-- Select State --</option></select></div><div id="acf-city" class="field field_type-select field_key-zip_city" data-field_name="city" data-field_key="zip_city" data-field_type="select"><p class="label"><label for="acf-field-city">City</label></p><select id="acf-field-city" class="select" name="fields[zip_city_' + timestamp + ']"><option value="0">-- Select City --</option></select></div><div id="acf-zip" class="field field_type-select field_key-zip_zip" data-field_name="zip" data-field_key="zip_zip" data-field_type="select"><p class="label"><label for="acf-field-zip">Zip</label></p><select id="acf-field-zip" class="select" name="fields[zip_zip_' + timestamp + ']"><option value="0" selected="selected">-- Select Zip --</option></select></div><div style="display:none"><input type="hidden" name="acf_nonce" value="1b7b369ef1"></div></div>');
+	   	var stateValue = $('#acf-field-state').val();
+    	var cityValue = $('#acf-field-city').val();
+    	var zipValue = $('#acf-field-zip').val();
+    	var stateBlock = '<div class="row"><span class="name-tag">State</span><span class="value-tag">' + stateValue + '</span></div>';
+    	var cityBlock = '<div class="row"><span class="name-tag">City</span><span class="value-tag">' + cityValue + '</span></div>';
+    	var zipBlock = '<div class="row"><span class="name-tag">Zip</span><span class="value-tag">' + zipValue + '</span></div>';
 
-	    $fieldsRow.appendTo("#acf_acf_zip");
+    	$('#poststuff').append( '<div id="newZipCode">' + stateBlock + cityBlock + zipBlock +'</div>');
+    	$("#newZipCode").animate(
+    	{
+    		opacity: 1,
+	        height: '60px',
+	        width: '700px'
+	    });
+
+    	$("#newZipCode").nextAll().animate(
+    	{	
+    		opacity: 1,
+	        height: '60px',
+	        width: '700px'
+	    });
+
+    	$('#acf-field-city').attr('disabled', true);
+		$('#acf-field-zip').attr('disabled', true);
+    	$('#acf-field-city').find('option').remove();
+	   	$('#acf-field-zip').find('option').remove();
+	   	$("#btnAddZip").remove();
+	   	$('#acf-field-state').val(0);
     });
 });
