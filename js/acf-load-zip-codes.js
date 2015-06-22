@@ -1,4 +1,3 @@
-/* Ajax */
 jQuery(document).ready(function($) {
 	var ajaxurl = 'http://wpmonsters/wp-admin/admin-ajax.php';
 	var selectState = $('#acf-field-state');
@@ -8,7 +7,7 @@ jQuery(document).ready(function($) {
 	selectCity.attr('disabled', true);
 	selectZip.attr('disabled', true);
 
-	/* Handler for input State */
+	/* Ajax handler for input State */
     selectState.on('change', function(){
     	var $this = $(this);
 		selectZip.attr('disabled', true);
@@ -28,7 +27,7 @@ jQuery(document).ready(function($) {
     });
 
 
-    /* Handler for input City */
+    /* Ajax handler for input City */
     selectCity.on('change', function(){
     	$("#btnAddZip").remove();
     	var $this = $(this);
@@ -55,11 +54,12 @@ jQuery(document).ready(function($) {
 	   	var stateValue = selectState.val();
     	var cityValue = selectCity.val();
     	var zipValue = selectZip.val();
-    	var stateBlock = '<div class="row"><span class="name-tag">State</span><span class="value-tag">' + stateValue + '</span></div>';
-    	var cityBlock = '<div class="row"><span class="name-tag">City</span><span class="value-tag">' + cityValue + '</span></div>';
-    	var zipBlock = '<div class="row"><span class="name-tag">Zip</span><span class="value-tag">' + zipValue + '</span></div>';
+    	var stateBlock = '<div class="row"><label class="name-tag">State</label><input type="text" name="state" value="' + stateValue + '" class="value-tag" readonly></div>';
+    	var cityBlock = '<div class="row"><label class="name-tag">City</label><input type="text" name="city" value="' + cityValue + '" class="value-tag" readonly></div>';
+    	var zipBlock = '<div class="row"><label class="name-tag">Zip</label><input type="text" name="zip-code" value="' + zipValue + '" class="value-tag" readonly></div>';
 
-    	$('#poststuff').append( '<div id="key_' + i + '" class="zipRow">' + stateBlock + cityBlock + zipBlock +'</div>');
+    	$('#poststuff').append( '<div id=wrapZips></div>');    	
+    	$('#wrapZips').append( '<div id="key_' + i + '" class="zipRow">' + stateBlock + cityBlock + zipBlock +'</div>');
     	$('#key_' + i).append('<button type="button" id="btn_' + i + '" class="del-zip-code button button-primary button-large">Delete</button>');
     	$('#key_' + i).slideDown();
     	

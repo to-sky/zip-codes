@@ -91,7 +91,7 @@ function add_zip_codes() {
                     array (
                         'param' => 'post_type',
                         'operator' => '==',
-                        'value' => 'zip-code',
+                        'value' => 'post',
                         'order_no' => 0,
                         'group_no' => 0,
                     ),
@@ -219,4 +219,19 @@ function prefix_ajax_addZip() {
     wp_die();
 }
 
+/* Save post funcion*/
+function save_zip_meta( $post_id, $post, $update ) {
+    $state = $_REQUEST['state'];
+    $city = $_REQUEST['city'];
+    $zip = $_REQUEST['zip-code'];
 
+    echo $state."<br>";
+    echo $city."<br>";
+    echo $zip."<br>";
+    exit;
+
+    if ( isset( $_REQUEST['state'] ) ) {
+        update_post_meta( $post_id, 'state', sanitize_text_field( $_REQUEST['state'] ) );
+    }
+}
+add_action( 'save_post', 'save_zip_meta', 10, 3 );
