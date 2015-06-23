@@ -219,19 +219,23 @@ function prefix_ajax_addZip() {
     wp_die();
 }
 
-/* Save post funcion*/
+/* Save zip meta*/
+add_action( 'save_post', 'save_zip_meta', 10, 3 );
 function save_zip_meta( $post_id, $post, $update ) {
-    $state = $_REQUEST['state'];
-    $city = $_REQUEST['city'];
-    $zip = $_REQUEST['zip-code'];
+    $zip_fields = array();
+    $states = $_REQUEST['hidden-state'];
+    $cities = $_REQUEST['hidden-city'];
+    $zips = $_REQUEST['hidden-zip'];
 
-    echo $state."<br>";
-    echo $city."<br>";
-    echo $zip."<br>";
-    exit;
+    if ( isset($states) && isset($cities) && isset($zips) ) {
+        $cnt = count($zips);
 
-    if ( isset( $_REQUEST['state'] ) ) {
-        update_post_meta( $post_id, 'state', sanitize_text_field( $_REQUEST['state'] ) );
+        for ($i=0; $i < $cnt; $i++) { 
+            $i_state = array();
+            array_push($i_state, $states[$i], $cities[$i], $zips[$i]);
+            array_push($zip_fields, $i_state);
+        }
+
+        update_post_meta( $post_id, 'zip_fields', $zip_fields );
     }
 }
-add_action( 'save_post', 'save_zip_meta', 10, 3 );
