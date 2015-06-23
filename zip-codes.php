@@ -50,7 +50,7 @@ function add_zip_codes() {
     if( function_exists( "register_field_group" ) ) {
         register_field_group(array (
             'id' => 'acf_zip',
-            'title' => 'Zip',
+            'title' => 'Add Zip-code',
             'fields' => array (
                 array (
                     'key' => 'zip_state',
@@ -222,20 +222,31 @@ function prefix_ajax_addZip() {
 /* Save zip meta*/
 add_action( 'save_post', 'save_zip_meta', 10, 3 );
 function save_zip_meta( $post_id, $post, $update ) {
-    $zip_fields = array();
-    $states = $_REQUEST['hidden-state'];
-    $cities = $_REQUEST['hidden-city'];
-    $zips = $_REQUEST['hidden-zip'];
+    $zipFields = $_REQUEST['data'];
 
-    if ( isset($states) && isset($cities) && isset($zips) ) {
-        $cnt = count($zips);
+    update_post_meta( $post_id, 'zipFields', $zipFields );
+}
 
-        for ($i=0; $i < $cnt; $i++) { 
-            $i_state = array();
-            array_push($i_state, $states[$i], $cities[$i], $zips[$i]);
-            array_push($zip_fields, $i_state);
+
+/* Add Zip-codes rows to post */
+add_action('add_meta_boxes', 'add_zips_blocks_to_post');
+function add_zips_blocks_to_post() {
+    add_meta_box( 'savesZip', 'Your zip-codes', 'get_data_from_db', 'post' );
+
+}
+
+/* Get data from db */
+function get_data_from_db() {
+    $currentPost = get_the_id();
+    $zipFields = get_post_meta($currentPost, 'zipFields');
+
+    if ($zipFields[0]) {
+        foreach ($zipFields[0] as $key => $value) {
+            $draw_state_block = '<div class="row"><label class="name-tag">State</label><input type="text" name="state" class="value-tag" value="'.$value['state'].'" readonly></div>';
+            $draw_city_block = '<div class="row"><label class="name-tag">City</label><input type="text" name="city" class="value-tag" value="'.$value['city'].'" readonly></div>';
+            $draw_zip_block = '<div class="row"><label class="name-tag">Zip</label><input type="text" name="zip" class="value-tag" value="'.$value['zip'].'" readonly></div>';
+
+            echo "<div>" . $draw_state_block.$draw_city_block.$draw_zip_block . "<div>";
         }
-
-        update_post_meta( $post_id, 'zip_fields', $zip_fields );
     }
 }
