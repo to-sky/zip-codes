@@ -77,4 +77,8 @@ jQuery(document).ready(function($) {
 			$('#key_' + i).remove();
 		});
     });
+
+	$('#selectPostType').live('click', function(){
+		
+	})
 });

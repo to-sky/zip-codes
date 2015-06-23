@@ -15,34 +15,50 @@ function pr($data) {
 }
 
 
-/* Create post-type Zip-codes */
-add_action( 'init', 'zip_post_type' );
-function zip_post_type() {
-  register_post_type( 'zip-code',
-    array(
-      'labels' => array(
-        'name' => 'Zip-codes',
-        'singular_name' => 'Zip-code',
-        'menu_name'           => 'Zip-codes',
-        'parent_item_colon'   => 'Parent Zip-code',
-        'all_items'           => 'All Zip-codes',
-        'view_item'           => 'View Zip-code',
-        'add_new_item'        => 'Add Zip-code',
-        'add_new'             => 'Add New',
-        'edit_item'           => 'Edit Zip-code',
-        'update_item'         => 'Update Zip-code',
-        'search_items'        => 'Search Zip-code',
-        'not_found'           => 'Not Found',
-        'not_found_in_trash'  => 'Not found in Trash',
-      ),
-        'menu_icon'           => 'dashicons-location',
-        'supports'            => array( 'title' ),
-        'public' => true,
-        'has_archive' => true,
-    )
-  );
+/* Create menu item Zip-codes */
+add_action('admin_menu', 'create_zip_codes_menu');
+function create_zip_codes_menu() {
+    add_options_page('Zip-codes', 'Zip-codes', 'manage_options', 'optionZipCodes', 'pluginSettings');
 }
 
+
+/* Add plugin settings */
+function pluginSettings() {
+    echo '<h1>Hello!</h1>';
+    echo '<h2>This plugin to select the Zip-codes for the state and city.</h2>';
+
+    $postTypes = get_post_types( '', 'names' );
+
+    echo '<label>Select post type: </label><select>';
+        if ($postTypes) {
+            foreach ($postTypes as $postType) {
+                echo '<option value="' . $postType . '">' . $postType;
+            }
+        }
+    echo '</select>';
+    echo '<input id="selectPostType" type="button" value="Save" class="save-select button button-primary button-large">';
+}
+
+// global $post;
+// add_action('admin_init', 'test');
+// function test() {
+//     global $post;
+//     print_r($post);
+//     print_r($post->post_type);
+//     print_r(get_the_ID());
+//     exit;
+// }
+
+// function () {
+    // $currentPostType = get_the_id();
+
+//     if (current_post_type == get_option('post_type')) {
+//         echo '<select>';
+//         echo '<select>';
+//         echo '<select>';    
+//     }
+    
+// }
 
 /* Add fields to Zip-codes post type */
 add_action( 'init', 'add_zip_codes' );
@@ -91,7 +107,7 @@ function add_zip_codes() {
                     array (
                         'param' => 'post_type',
                         'operator' => '==',
-                        'value' => 'post',
+                        'value' => get_option('post_type'),
                         'order_no' => 0,
                         'group_no' => 0,
                     ),
@@ -242,11 +258,11 @@ function get_data_from_db() {
 
     if ($zipFields[0]) {
         foreach ($zipFields[0] as $key => $value) {
-            $draw_state_block = '<div class="row"><label class="name-tag">State</label><input type="text" name="state" class="value-tag" value="'.$value['state'].'" readonly></div>';
-            $draw_city_block = '<div class="row"><label class="name-tag">City</label><input type="text" name="city" class="value-tag" value="'.$value['city'].'" readonly></div>';
-            $draw_zip_block = '<div class="row"><label class="name-tag">Zip</label><input type="text" name="zip" class="value-tag" value="'.$value['zip'].'" readonly></div>';
+            $draw_state_block = '<div class="row"><label class="name-tag">State</label><input type="text" name="state" class="value-tag" value="' . $value['state'] . '" readonly></div>';
+            $draw_city_block = '<div class="row"><label class="name-tag">City</label><input type="text" name="city" class="value-tag" value="' . $value['city'] . '" readonly></div>';
+            $draw_zip_block = '<div class="row"><label class="name-tag">Zip</label><input type="text" name="zip" class="value-tag" value="' . $value['zip'] . '" readonly></div>';
 
-            echo "<div>" . $draw_state_block.$draw_city_block.$draw_zip_block . "<div>";
+            echo "<div>" . $draw_state_block . $draw_city_block . $draw_zip_block . "<div>";
         }
     }
 }
