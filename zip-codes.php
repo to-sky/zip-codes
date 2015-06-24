@@ -70,13 +70,8 @@ function pluginSettings() {
 
 /* Create table wp_zipcodes in db */
 register_activation_hook( __FILE__, 'zip_install' );
-
-global $zip_db_version;
-$zip_db_version = "1.0";
-
 function zip_install () {
     global $wpdb;
-    global $zip_db_version;
 
     $table_name = $wpdb->prefix . "zipcodes";
     if($wpdb->get_var("show tables like '$table_name'") != $table_name) {
@@ -99,8 +94,6 @@ function zip_install () {
     $file_db = plugins_url('zip-codes/wpm_zip.sql');
     $input_data_to_table = file_get_contents($file_db);
     $rows_affected = $wpdb->query( $input_data_to_table );
-
-    wp_die();
 }
 
 
@@ -154,9 +147,7 @@ function get_data_from_db() {
                 echo '<div class="zip-row clearfix">' . $draw_state_block . $draw_city_block . $draw_zip_block . $draw_btn . '</div>';
             }
         }
-        wp_die();
     echo '</div>';
-
 }
 
 
@@ -175,7 +166,6 @@ function prefix_ajax_addCities() {
             echo '<option value="' . $city->city . '" ' . $selected . '>' . $city->city . '</option>';
         }
     }
-    wp_die();
 }
 
 
@@ -194,7 +184,6 @@ function prefix_ajax_addZip() {
             echo '<option value="' . $zip->zip . '">' . $zip->zip . '</option>';
         }
     }
-    wp_die();
 }
 
 
@@ -213,6 +202,6 @@ function clean_after_deactivate( ) {
     $insdb = get_option( 'zipFields' );
     $sPt = get_option('selected_post_type');
 
-    delete_option( 'zipFields' );
-    delete_option( 'selected_post_type' );
+    wp_delete_post( $insdb, TRUE );
+    delete_option( 'product_ID' );
 }
