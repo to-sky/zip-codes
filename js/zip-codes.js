@@ -100,7 +100,7 @@ jQuery(document).ready(function($) {
     
     /* Delete row zip-code */
     $('#delSavedRow').live('click', function() {
-        $(this).parent().slideUp(); //fix
+        $(this).parent().slideUp();
         $(this).parent().remove();
     })
 
