@@ -1,5 +1,6 @@
 jQuery(document).ready(function($) {
 	$('#savesZip').addClass('clearfix');
+
 	var ajaxurl = 'http://wpmonsters/wp-admin/admin-ajax.php';
 	var selectState = $('#acf-field-state');
 	var selectCity = $('#acf-field-city');
@@ -77,8 +78,9 @@ jQuery(document).ready(function($) {
 			$('#key_' + i).remove();
 		});
     });
-
-	$('#selectPostType').live('click', function(){
-		
-	})
+    
+    $('#postTypes').on('change', function() {
+        var $this = $(this).val();
+        $('#hiddenPostypes').val($this);
+    })
 });

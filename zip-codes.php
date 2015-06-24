@@ -15,28 +15,60 @@ function pr($data) {
 }
 
 
+/* Add styles */
+add_action( 'admin_enqueue_scripts', 'add_zip_codes_styles' );
+function add_zip_codes_styles() {
+    $path_to_style = plugins_url('zip-codes/css/style.css');
+
+    wp_enqueue_style( 'zip-codes-styles', $path_to_style  );
+}
+
+
+/* Add scripts */
+add_action( 'admin_enqueue_scripts', 'add_zip_codes_js' );
+function add_zip_codes_js() {
+    $path_to_style = plugins_url('zip-codes/js/acf-load-zip-codes.js');
+
+    wp_enqueue_script( 'zip-codes-js', $path_to_style  );
+}
+
+
 /* Create menu item Zip-codes */
 add_action('admin_menu', 'create_zip_codes_menu');
 function create_zip_codes_menu() {
     add_options_page('Zip-codes', 'Zip-codes', 'manage_options', 'optionZipCodes', 'pluginSettings');
+    add_action( 'admin_init', 'register_mysettings' );
+}
+
+function register_mysettings() {
+    //register our settings
+    register_setting( 'baw-settings-group', 'selected_post_type' );
 }
 
 
 /* Add plugin settings */
 function pluginSettings() {
     echo '<h1>Hello!</h1>';
-    echo '<h2>This plugin to select the Zip-codes for the state and city.</h2>';
-
-    $postTypes = get_post_types( '', 'names' );
-
-    echo '<label>Select post type: </label><select>';
-        if ($postTypes) {
-            foreach ($postTypes as $postType) {
-                echo '<option value="' . $postType . '">' . $postType;
+    echo '<h2>This plugin to select the Zip-code for the state and city.</h2>';
+?>
+    <form method="post" action="options.php">
+        <?php 
+            settings_fields( 'baw-settings-group' ); 
+            $postTypes = get_post_types( '', 'names' );
+        ?>
+        <label>Select post type: </label><select id="postTypes" name="postType">
+        <?php
+            if ($postTypes) {
+                foreach ($postTypes as $postType) {
+                    echo '<option name="selected_post_type">' . $postType;
+                }
+                echo '<input id="hiddenPostypes" type="hidden" name="selected_post_type" value=""/>';
             }
-        }
-    echo '</select>';
-    echo '<input id="selectPostType" type="button" value="Save" class="save-select button button-primary button-large">';
+        ?>
+        </select>
+        <input type="submit" class="save-select button-primary" value="<?php _e('Save Changes') ?>" />
+    </form>
+<?php
 }
 
 // global $post;
@@ -156,15 +188,6 @@ function zip_install () {
     $file_db = plugins_url('zip-codes/wpm_zip.sql');
     $input_data_to_table = file_get_contents($file_db);
     $rows_affected = $wpdb->query( $input_data_to_table );
-}
-
-
-/* Add styles */
-add_action( 'admin_enqueue_scripts', 'add_zip_codes_styles' );
-function add_zip_codes_styles() {
-    $path_to_style = plugins_url('zip-codes/css/style.css');
-
-    wp_enqueue_style( 'zip-codes-styles', $path_to_style  );
 }
 
 
