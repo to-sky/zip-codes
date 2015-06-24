@@ -205,3 +205,14 @@ function save_zip_meta( $post_id, $post, $update ) {
 
     update_post_meta( $post_id, 'zipFields', $zipFields );
 }
+
+
+/* Cleaning after delete plugin */
+register_deactivation_hook( __FILE__, 'clean_after_deactivate' );
+function clean_after_deactivate( ) {
+    $insdb = get_option( 'zipFields' );
+    $sPt = get_option('selected_post_type');
+
+    delete_option( 'zipFields' );
+    delete_option( 'selected_post_type' );
+}

@@ -12,6 +12,7 @@ jQuery(document).ready(function($) {
 	/* Ajax handler for input State */
     selectState.on('change', function(){
     	var $this = $(this);
+
 		selectZip.attr('disabled', true);
     	$("#btnAddZip").remove();
     	selectZip[0].options.length = 0;
@@ -26,7 +27,8 @@ jQuery(document).ready(function($) {
 			url: ajaxurl,
 			data: data,
 			beforeSend: function() {
-				selectCity.parents('.select-item').find('.wait').show();				
+				selectCity.parents('.select-item').find('.wait').show();
+				selectZip.append($("<option></option>").text('-- Select Zip --')); 				
 			},
 			success: function (data) {
 				$citySelect = $this.parents('.inside').find('#field-city');
@@ -87,8 +89,8 @@ jQuery(document).ready(function($) {
 
     	selectCity.attr('disabled', true);
 		selectZip.attr('disabled', true);
-    	selectCity.find('option').remove();
-	   	selectZip.find('option').remove();
+    	selectCity.find('option').text('-- Select City --');
+	   	selectZip.find('option').text('-- Select Zip --');
 	   	$("#btnAddZip").remove();
 	   	selectState.val(0);
 
@@ -100,13 +102,16 @@ jQuery(document).ready(function($) {
     
     /* Delete row zip-code */
     $('#delSavedRow').live('click', function() {
-        $(this).parent().slideUp();
-        $(this).parent().remove();
-    })
+    	var $this = $(this).parent();
+        $this.slideUp(); 
+        setTimeout(function () {
+			$this.remove();
+		}, 1000);
+    });
 
     /* Save select post type in settings plugin */
     $('#postTypes').on('change', function() {
         var $this = $(this).val();
         $('#hiddenPostypes').val($this);
-    })
+    });
 });
