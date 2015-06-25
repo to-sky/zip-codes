@@ -1,7 +1,7 @@
 jQuery(document).ready(function($) {
 	$('#savesZip').addClass('clearfix');
 
-	var ajaxurl = 'http://work.local/wp-admin/admin-ajax.php';
+	var ajaxurl = 'http://wpmonsters/wp-admin/admin-ajax.php';
 	var selectState = $('#field-state');
 	var selectCity = $('#field-city');
 	var selectZip = $('#field-zip');

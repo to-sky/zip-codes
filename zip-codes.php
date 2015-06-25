@@ -51,14 +51,16 @@ function pluginSettings() {
         <label>Select post type: </label><select id="postTypes" name="postType">
         <?php
             if ($postTypes) {
-                foreach ($postTypes as $postType) {                    
-                    if ( $postType == get_option('selected_post_type') ) {
-                        echo '<option name="selected_post_type" selected="selected">' . $postType;
-                        continue;
-                    } 
-                    echo '<option name="selected_post_type">' . $postType;
+                foreach ($postTypes as $postType) {  
+                    if ( $postType != 'attachment' && $postType != 'revision' && $postType != 'nav_menu_item' && $postType != 'acf') {               
+                        if ( $postType == get_option('selected_post_type') ) {
+                            echo '<option name="selected_post_type" selected="selected">' . $postType;
+                            continue;
+                        } 
+                        echo '<option name="selected_post_type">' . $postType;
+                    }
                 }
-                echo '<input id="hiddenPostypes" type="hidden" name="selected_post_type" value=""/>';
+                echo '<input id="hiddenPostypes" type="hidden" name="selected_post_type" value=""/>';        
             }
         ?>
         </select>
@@ -200,7 +202,6 @@ function save_zip_meta( $post_id, $post, $update ) {
 register_deactivation_hook( __FILE__, 'clean_after_deactivate' );
 function clean_after_deactivate( ) {
     global $wpdb;
-    $wpdb->query('DELETE FROM wp_postmeta WHERE meta_key LIKE "zipFields"');
-    $wpdb->query('DELETE FROM wp_options WHERE option_name LIKE "selected_post_type"');
+    
     $wpdb->query('DROP TABLE IF EXISTS wp_zipcodes');
 }
