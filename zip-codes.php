@@ -196,12 +196,11 @@ function save_zip_meta( $post_id, $post, $update ) {
 }
 
 
-/* Cleaning after delete plugin */
+/* Cleaning db after delete plugin */
 register_deactivation_hook( __FILE__, 'clean_after_deactivate' );
 function clean_after_deactivate( ) {
-    $insdb = get_option( 'zipFields' );
-    $sPt = get_option('selected_post_type');
-
-    wp_delete_post( $insdb, TRUE );
-    delete_option( 'product_ID' );
+    global $wpdb;
+    $wpdb->query('DELETE FROM wp_postmeta WHERE meta_key LIKE "zipFields"');
+    $wpdb->query('DELETE FROM wp_options WHERE option_name LIKE "selected_post_type"');
+    $wpdb->query('DROP TABLE IF EXISTS wp_zipcodes');
 }
