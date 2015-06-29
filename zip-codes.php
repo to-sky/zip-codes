@@ -48,25 +48,26 @@ function pluginSettings() {
             settings_fields( 'baw-settings-group' ); 
             $postTypes = get_post_types( '', 'names' );
         ?>
-        <label>Select post type: </label><select id="postTypes" name="postType">
+        <label>Select post type: </label><br />
         <?php
             if ($postTypes) {
                 foreach ($postTypes as $postType) {  
-                    if ( $postType != 'attachment' && $postType != 'revision' && $postType != 'nav_menu_item' && $postType != 'acf') {               
-                        if ( $postType == get_option('selected_post_type') ) {
-                            echo '<option name="selected_post_type" selected="selected">' . $postType;
-                            continue;
-                        } 
-                        echo '<option name="selected_post_type">' . $postType;
+                    if ( $postType != 'attachment' && $postType != 'revision' && $postType != 'nav_menu_item' && $postType != 'acf') {
+                        echo '<input type="checkbox" name="selected_post_type" value="' . $postType . '" />' . $postType . '<br />';
                     }
-                }
-                echo '<input id="hiddenPostypes" type="hidden" name="selected_post_type" value=""/>';        
+                }    
             }
         ?>
-        </select>
+            <input type="hidden" name="action" value="update" />
+            <input type="hidden" name="page_options" value="selected_post_type" />
         <input type="submit" class="save-select button-primary" value="<?php _e('Save Changes') ?>" />
     </form>
 <?php
+
+echo 'Test';
+pr($_REQUEST);
+exit;
+
 }
 
 
@@ -193,6 +194,9 @@ function prefix_ajax_addZip() {
 add_action( 'save_post', 'save_zip_meta', 10, 3 );
 function save_zip_meta( $post_id, $post, $update ) {
     $zipFields = $_REQUEST['data'];
+
+    pr($zipFields);
+    exit;
 
     update_post_meta( $post_id, 'zipFields', $zipFields );
 }

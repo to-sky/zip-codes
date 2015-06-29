@@ -80,7 +80,7 @@
 }
 
 .select-item {
-	position: relative;;
+	position: relative;
 	display: inline-block;
 }
 
@@ -113,3 +113,17 @@
 	margin: 10px 0;
 	box-shadow: 0 0 20px rgba(0, 0, 0, 0.1) inset;
 }
+
+/* inputs in settings */
+/*input[type=checkbox] {
+	height: 30px;
+	width: 30px;
+	margin: 10px;
+	border-radius: 8px;
+}
+
+input[type=checkbox]:checked:before {
+	margin: 15px 0 0 -25px;
+	font: 400 75px/0 dashicons;	
+}
+*/

@@ -109,9 +109,9 @@ jQuery(document).ready(function($) {
 		}, 1000);
     });
 
-    /* Save select post type in settings plugin */
-    $('#postTypes').on('change', function() {
-        var $this = $(this).val();
-        $('#hiddenPostypes').val($this);
-    });
+    // /* Save select post type in settings plugin */
+    // $('#postTypes').on('change', function() {
+    //     var $this = $(this).val();
+    //     $('#hiddenPostypes').val($this);
+    // });
 });
