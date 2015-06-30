@@ -43,27 +43,30 @@ function pluginSettings() {
             wp_nonce_field('update-options');
             $postTypes = get_post_types( '', 'names' ); 
         ?>
-        <label>Select post type: </label><br />
-        <?php
-        $str_val = '';
-            if ($postTypes) {
-                foreach ($postTypes as $postType) {  
-                    $field_id_checked = '';
-                    if ( $postType != 'attachment' && $postType != 'revision' && $postType != 'nav_menu_item' && $postType != 'acf') {
-                        $str_val .= $postType . ', ';
-                        $field_id_value = get_option($postType);
-                        if ( $field_id_value == "yes" ) {
-                            $field_id_checked = 'checked="checked"'; 
+        <div class="post-type-settings">
+            <label>Select post type for activate Zip codes field: </label><br><hr>
+            <?php
+            $str_val = '';
+                if ($postTypes) {
+                    foreach ($postTypes as $postType) {  
+                        $field_id_checked = '';
+                        if ( $postType != 'attachment' && $postType != 'revision' && $postType != 'nav_menu_item' && $postType != 'acf') {
+                            $str_val .= $postType . ', ';
+                            $field_id_value = get_option($postType);
+                            if ( $field_id_value == "yes" ) {
+                                $field_id_checked = 'checked="checked"'; 
+                            }
+                            echo '<label><input type="checkbox" name="' . $postType . '"  value="yes" ' . $field_id_checked  . ' />' . $postType . '</label><br>';
                         }
-                        echo '<input type="checkbox" name="' . $postType . '"  value="yes" ' . $field_id_checked  . ' />' . $postType ;
                     }
+                    $rest = substr($str_val, 0, strlen($str_val)-2);
                 }
-                $rest = substr($str_val, 0, strlen($str_val)-2);
-            }
-        ?>
-        <input type="hidden" name="action" value="update" />
-        <input type="hidden" name="page_options" value="<?php echo $rest; ?>" />
-        <input type="submit" class="button-primary" value="<?php _e('Save Changes') ?>" />
+            ?>
+            <hr>
+            <input type="hidden" name="action" value="update" />
+            <input type="hidden" name="page_options" value="<?php echo $rest; ?>" />
+            <input type="submit" class="button-primary" value="<?php _e('Save Changes') ?>" />
+        </div>
     </form>
 <?php
 }
