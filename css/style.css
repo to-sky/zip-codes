@@ -115,6 +115,7 @@
 }
 
 /* inputs in settings */
+
 /*input[type=checkbox] {
 	height: 30px;
 	width: 30px;
@@ -125,5 +126,4 @@
 input[type=checkbox]:checked:before {
 	margin: 15px 0 0 -25px;
 	font: 400 75px/0 dashicons;	
-}
-*/
+}*/

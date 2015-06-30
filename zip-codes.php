@@ -30,11 +30,6 @@ function add_styles_js() {
 add_action('admin_menu', 'create_zip_codes_menu');
 function create_zip_codes_menu() {
     add_options_page('Zip-codes', 'Zip-codes', 'manage_options', 'optionZipCodes', 'pluginSettings');
-    add_action( 'admin_init', 'register_mysettings' );
-}
-
-function register_mysettings() {
-    register_setting( 'baw-settings-group', 'selected_post_type' );
 }
 
 
@@ -45,29 +40,32 @@ function pluginSettings() {
 ?>
     <form method="post" action="options.php">
         <?php 
-            settings_fields( 'baw-settings-group' ); 
-            $postTypes = get_post_types( '', 'names' );
+            wp_nonce_field('update-options');
+            $postTypes = get_post_types( '', 'names' ); 
         ?>
         <label>Select post type: </label><br />
         <?php
+        $str_val = '';
             if ($postTypes) {
                 foreach ($postTypes as $postType) {  
+                    $field_id_checked = '';
                     if ( $postType != 'attachment' && $postType != 'revision' && $postType != 'nav_menu_item' && $postType != 'acf') {
-                        echo '<input type="checkbox" name="selected_post_type" value="' . $postType . '" />' . $postType . '<br />';
+                        $str_val .= $postType . ', ';
+                        $field_id_value = get_option($postType);
+                        if ( $field_id_value == "yes" ) {
+                            $field_id_checked = 'checked="checked"'; 
+                        }
+                        echo '<input type="checkbox" name="' . $postType . '"  value="yes" ' . $field_id_checked  . ' />' . $postType ;
                     }
-                }    
+                }
+                $rest = substr($str_val, 0, strlen($str_val)-2);
             }
         ?>
-            <input type="hidden" name="action" value="update" />
-            <input type="hidden" name="page_options" value="selected_post_type" />
-        <input type="submit" class="save-select button-primary" value="<?php _e('Save Changes') ?>" />
+        <input type="hidden" name="action" value="update" />
+        <input type="hidden" name="page_options" value="<?php echo $rest; ?>" />
+        <input type="submit" class="button-primary" value="<?php _e('Save Changes') ?>" />
     </form>
 <?php
-
-echo 'Test';
-pr($_REQUEST);
-exit;
-
 }
 
 
@@ -103,7 +101,14 @@ function zip_install () {
 /* Add Zip-codes rows to post */
 add_action('add_meta_boxes', 'add_zips_blocks_to_post');
 function add_zips_blocks_to_post() {
-    add_meta_box( 'savesZip', 'Your zip-codes', 'get_data_from_db', get_option('selected_post_type') );
+    $postTypes = get_post_types( '', 'names' );
+    if ( $postType != 'attachment' && $postType != 'revision' && $postType != 'nav_menu_item' && $postType != 'acf') {
+        foreach ( $postTypes as $postType ) {
+            if ( get_option($postType) == 'yes' ) {
+                add_meta_box( 'savesZip', 'Your zip-codes', 'get_data_from_db', $postType );
+            }
+        }
+    }
 }
 
 
@@ -194,9 +199,6 @@ function prefix_ajax_addZip() {
 add_action( 'save_post', 'save_zip_meta', 10, 3 );
 function save_zip_meta( $post_id, $post, $update ) {
     $zipFields = $_REQUEST['data'];
-
-    pr($zipFields);
-    exit;
 
     update_post_meta( $post_id, 'zipFields', $zipFields );
 }
