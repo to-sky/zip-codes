@@ -29,7 +29,7 @@ Use ID, ‘zipFields’, true ); ?>to get an array of connected zip codes.
 == Screenshots ==
 
 1. This screenshot shows how the plugin looks in admin side.
-   ![GitHub Logo](https://github.com/to-sky/zip-codes/blob/master/screenshot1.png)
+   https://github.com/to-sky/zip-codes/blob/master/screenshot1.png
    
 2. This screenshot shows the array you get after use get_post_meta().
    https://github.com/to-sky/zip-codes/blob/master/screenshot2.png
